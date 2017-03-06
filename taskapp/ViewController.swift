@@ -14,7 +14,7 @@ import UserNotifications
 
 //UITableViewにデータを表示するために任せるクラスを指定する．
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     // Realmインスタンスを取得する
@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // DB内のタスクが格納されるリスト。
     // 日付近い順\順でソート：降順
     // 以降内容をアップデートするとリスト内は自動的に更新される。
-    let taskArray = try! Realm().objects(Task.self).sorted(byProperty: "date", ascending: false)   // ←追加
+    let taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)   // ←追加
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,18 +32,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-//MARK: UITableViewDataSourceプロトコルのメソッド？？？？？
+    
+    //MARK: UITableViewDataSourceプロトコルのメソッド？？？？？
     //データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return taskArray.count 
+        return taskArray.count
     }
-   //各cellの内容を返すメソッド
+    
+    //各cellの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         //再利用可能なCellを得る(デキューって、queueの逆？？？逆ならびでリユースのセル)
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -71,8 +72,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath)-> UITableViewCellEditingStyle {
         return UITableViewCellEditingStyle.delete
     }
-   
-       
     
     // segue で画面遷移するに呼ばれる
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -121,8 +120,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
-  
-       
+    
+    
     
     
     // 入力画面から戻ってきた時に TableView を更新させる

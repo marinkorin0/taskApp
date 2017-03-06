@@ -8,28 +8,8 @@
 
 import UIKit
 import RealmSwift
-import UserNotifications    // 追加
+import UserNotifications
 
-class Task: Object {
-    // 管理用 ID。プライマリーキー
-    dynamic var id = 0
-    
-    // タイトル
-    dynamic var title = ""
-    
-    // 内容
-    dynamic var contents = ""
-    
-    /// 日時
-    dynamic var date = NSDate()
-    
-    /**
-     id をプライマリーキーとして設定
-     */
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
 
 
 //UITableViewにデータを表示するために任せるクラスを指定する．
@@ -61,7 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //MARK: UITableViewDataSourceプロトコルのメソッド？？？？？
     //データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return taskArray.count 
     }
    //各cellの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -141,6 +121,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+  
+       
     
     
     // 入力画面から戻ってきた時に TableView を更新させる

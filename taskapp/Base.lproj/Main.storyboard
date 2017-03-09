@@ -22,26 +22,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mSu-YU-6Yg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fMp-Hl-jOc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="PTg-II-9Pn" detailTextLabel="5Eo-Bn-GC1" style="IBUITableViewCellStyleSubtitle" id="Z3L-K7-VOr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="wJV-Ep-4L6" detailTextLabel="dZV-dp-GTb" style="IBUITableViewCellStyleSubtitle" id="tv5-x0-DLe">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z3L-K7-VOr" id="Evk-T5-2B0">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tv5-x0-DLe" id="KJv-Nm-Nsx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PTg-II-9Pn">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wJV-Ep-4L6">
                                                     <rect key="frame" x="15" y="4" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Eo-Bn-GC1">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dZV-dp-GTb">
                                                     <rect key="frame" x="15" y="25" width="44" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -56,10 +55,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mSu-YU-6Yg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1fs-fF-lLz"/>
-                            <constraint firstAttribute="trailing" secondItem="mSu-YU-6Yg" secondAttribute="trailing" id="QMq-Sh-ATS"/>
-                            <constraint firstItem="mSu-YU-6Yg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RMe-Cs-2cS"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mSu-YU-6Yg" secondAttribute="bottom" id="VfY-9x-QUC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fMp-Hl-jOc" secondAttribute="bottom" id="H4K-Hk-HRg"/>
+                            <constraint firstAttribute="trailing" secondItem="fMp-Hl-jOc" secondAttribute="trailing" id="I23-FA-mjz"/>
+                            <constraint firstItem="fMp-Hl-jOc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UKV-8A-NmN"/>
+                            <constraint firstItem="fMp-Hl-jOc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gSu-5P-4mK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b7H-Ve-eqs">
@@ -70,13 +69,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="mSu-YU-6Yg" id="ZVD-a3-UIt"/>
+                        <outlet property="tableView" destination="fMp-Hl-jOc" id="rdc-ZP-WcB"/>
                         <segue destination="MUS-Ve-93i" kind="show" identifier="cellSegue" id="ddc-8q-SdR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043.4782608695652" y="138.58695652173915"/>
+            <point key="canvasLocation" x="1042.4000000000001" y="138.0809595202399"/>
         </scene>
         <!--Input View Controller-->
         <scene sceneID="Mmp-XI-Aq6">
@@ -111,7 +110,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="QRz-Re-hFW"/>
                                 </constraints>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

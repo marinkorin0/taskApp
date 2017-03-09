@@ -41,11 +41,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //MARK: UITableViewDataSourceプロトコルのメソッド？？？？？
     //データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return taskArray.count 
+    return taskArray.count
     }
    //各cellの内容を返すメソッド
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        //再利用可能なCellを得る(デキューって、queueの逆？？？逆ならびでリユースのセル)
+       
+        // 再利用可能な cell を得る
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         // Cellに値を設定する
@@ -122,8 +123,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
   
-       
-    
     
     // 入力画面から戻ってきた時に TableView を更新させる
     override func viewWillAppear(_ animated: Bool) {

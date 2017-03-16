@@ -12,12 +12,10 @@ import UserNotifications
 
 class InputViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
+    @IBOutlet weak var categoryTextField: UITextField!
     let realm = try! Realm()
     var task: Task!
     
@@ -33,6 +31,7 @@ class InputViewController: UIViewController {
         titleTextField.text = task.title
         contentsTextView.text = task.contents
         datePicker.date = task.date as Date
+        categoryTextField.text = task.category
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,7 +40,9 @@ class InputViewController: UIViewController {
             self.task.title = self.titleTextField.text!
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date as NSDate
+            self.task.category = self.categoryTextField.text!
             self.realm.add(self.task, update: true)
+           
         }
         
         // タスクのローカル通知を登録する
@@ -76,9 +77,7 @@ class InputViewController: UIViewController {
                 }
             }
         }
-        
-        
-        
+       
         setNotification(task: task)
         super.viewWillDisappear(animated)
     }
@@ -86,17 +85,14 @@ class InputViewController: UIViewController {
     func dismissKeyboard(){
         // キーボードを閉じる
         view.endEditing(true)
-        
-        
+       
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
+  
     
     /*
      // MARK: - Navigation

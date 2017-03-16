@@ -13,17 +13,22 @@ import UserNotifications
 
 
 //UITableViewにデータを表示するために任せるクラスを指定する．
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var search: UISearchBar!
+
+   
     
     // Realmインスタンスを取得する
     let realm = try! Realm()  // ←追加
     
+    
     // DB内のタスクが格納されるリスト。
-    // 日付近い順\順でソート：降順
-    // 以降内容をアップデートするとリスト内は自動的に更新される。
-    let taskArray = try! Realm().objects(Task.self).sorted(byProperty: "date", ascending: false)   // ←追加
+    // 日付の近い順．降順
+    // アップデートすると自動的にリストが更新される。
+    var taskArray = try! Realm().objects(Task.self).sorted(byProperty: "date", ascending: false)   // ←追加
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
 
+    var searchFlag: Bool = false
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        search.resignFirstResponder()
+    }
+    
+    // searchバーのテキスト処理を終えた時
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchFlag = true
+        taskArray = try! Realm().objects(Task.self).filter("category CONTAINS[c] %@", searchBar.text!)
+            tableView.reloadData()
+
+        
+    
+    }
+    // 検索をキャンセルした時の処理
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchFlag = false
+        taskArray = try! Realm().objects(Task.self).filter("category CONTAINS[c] %@", searchBar.text!)
+        tableView.reloadData()
+    }
+    
+    
 //MARK: UITableViewDataSourceプロトコルのメソッド？？？？？
     //データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

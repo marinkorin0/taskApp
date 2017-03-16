@@ -15,7 +15,7 @@ import UserNotifications    // 追加
 
 // UNUserNotificationCenterDelegateを追加
 
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate{
     
     var window: UIWindow?
     
